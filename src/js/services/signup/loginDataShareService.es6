@@ -5,14 +5,16 @@ let angular = require('angular');
 
 angular
   .module('PopcornListApp')
-  .factory('login', ['$resource', function($resource){
+  .factory('Login', ['$resource', function($resource){
     return $resource(
       'https://django-api.com/member/login/',{},
-       {'create': { method:'post' }}
+         {'get' : {method: 'get'},
+         'create': { method:'post'}
+       }
       );
   }])
  
-  .service('loginDataShareService', ['login' , (login)=>{  
+  .service('loginDataShareService', ['Login' , (Login)=>{  
     let initServiceSetting = ()=> {
       _service.people   = [];
       _service.page     = 1;
@@ -27,22 +29,23 @@ angular
         'loadContacts' : ( ) =>{
 
            _service.is_loading = true;
-          //  login.get((data)=>{
-          //   angular.forEach(data, (person)=>{
-          //     _service.people.push( new login(person) );
-          //   });
-          // });
+          
         },
         'createContact' : (person,gotoListPage) => {
            
+            let login = new Login(person);
+
             _service.is_creating = true;
 
-            (new login(person)).$create().then(()=> {
-                initServiceSetting();
+
+            login.$create().then(()=> {
+                window.localStorage.clear();
+
+                window.localStorage['key'] = login.key;
+                // console.log( window.localStorage['key']);
+                // initServiceSetting();
                 _service.loadContacts();
                 _service.is_creating = false;
-                 window.localStorage.clear();
-                 window.localStorage['key'] = (new login(person)).token;
                 gotoListPage();
             });
         },

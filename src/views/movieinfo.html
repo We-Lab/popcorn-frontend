@@ -15,9 +15,9 @@
               </li>
       	  	  <li class="movie-grade-group row" aria-label="평점">
                 <div class="stars-wrap">
-                  <div class="stars-rating"></div>
+                  <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
                 </div>
-						    <div class="movie-grade movie-grade-style">3</div>
+		            <div class="movie-grade movie-grade-style">{{moviedetail_data.movies[0].star_average  | number:2}}</div>
       	  	  </li>
       	  	  <li>
       	  	    <ul class="movie-info-sub">
@@ -45,7 +45,7 @@
 				<li class="">
 					<a href="#">
 						<div class="actor-image-wrap">
-							<img data-ng-src={{moviedetail_data.movies[0].director[0].profile_url}} src="http://img1.daumcdn.net/thumb/C74x107/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F1269480D49D0562910ECDB" alt="">
+							<img data-ng-src={{moviedetail_data.movies[0].director[0].profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].director[0].name_kor}}">
 						</div>
 						<div class="actor-info-wrap">
 							<h2>감독</h2>
@@ -57,7 +57,7 @@
 				<li class="">
 					<a href="#">
 						<div class="actor-image-wrap">
-							<img data-ng-src={{moviedetail_data.movies[0].actors[0].actor.profile_url}} src="http://img1.daumcdn.net/thumb/C74x107/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fc83cd578420db66f214c0b03a1231c83bef5185d" alt="">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[0].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[0].actor.name_kor}}">
 						</div>
 						<div class="actor-info-wrap">
 							<h2>배우</h2>
@@ -69,7 +69,7 @@
 				<li class="">
 					<a href="#">
 						<div class="actor-image-wrap">
-							<img data-ng-src={{moviedetail_data.movies[0].actors[1].actor.profile_url}} src="http://img1.daumcdn.net/thumb/C74x107/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F15404110ADFC2E252E5CDB" alt="">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[1].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[1].actor.name_kor}}">
 						</div>
 						<div class="actor-info-wrap">
 							<h2>배우</h2>
@@ -81,7 +81,7 @@
 				<li class="">
 					<a href="#">
 						<div class="actor-image-wrap">
-							<img data-ng-src={{moviedetail_data.movies[0].actors[2].actor.profile_url}} src="http://img1.daumcdn.net/thumb/C74x107/?fname=http%3A%2F%2Fmovie.daum-img.net%2Fmovie%2Fmovie-photo%2F40%2F93%2F389340%2Fpeople_389340.jpg" alt="">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[2].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[2].actor.name_kor}}">
 						</div>
 						<div class="actor-info-wrap">
 							<h2>배우</h2>
@@ -128,7 +128,7 @@
 		  <section class="movie-video">
 		    <h1 class="movie-video-heading t-col-1 d-col-1">예고편</h1>
 		    <div class="movie-video-view m-col-4 t-col-8 d-col-9">
-		      <iframe title="신비한 동물사전 파이널 예고편" data-ng-src="{{moviedetail_data.movies[0].main_trailer}}" src="http://videofarm.daum.net/controller/video/viewer/Video.html?vid=vd602rZMZZ4Zwbewrejr11r&play_loc=undefined&alert=true" frameborder="0" scrolling="no"></iframe>
+		      <iframe title="{{moviedetail_data.movies[0].title_kor}} 예고편" data-ng-src="{{moviedetail_data.movies[0].main_trailer | trustAsResourceUrl}}" src="http://videofarm.daum.net/controller/video/viewer/Video.html?vid=vd602rZMZZ4Zwbewrejr11r&play_loc=undefined&alert=true" frameborder="0" scrolling="no"></iframe>
 		    </div>
 		  </section>
 		  <!-- </div> -->
@@ -140,30 +140,27 @@
 		        <li class="m-col-1 t-col-2" data-ng-repeat="movie in filteredMovies=(movieinfoRelated_data.movies | filter:search )">
 		        <a href="#">
 		          <figure>
-		              <img data-ng-src="{{movie.img_url | defaultImage}}" src="http://img1.daumcdn.net/thumb/C155x225/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F146F1B10ACE2AE7DF12090" alt="{{movie.title_kor}} 포스터">
-		              <figcaption>
-		                <div class="movie-relative-title">{{movie.title_kor}}</div>
-		                <div class="movie-relative-grade-group">
-		                  <div class="small-star"></div>
-		                      <div class="small-star"></div>
-		                      <div class="small-star"></div>
-		                      <div class="small-star"></div>
-		                      <div class="small-non-star"></div>
-		                  <div class="small-movie-grade">{{movie.star_average}}</div>
-		                </div>
-		              </figcaption>
+	              <img class="movie-relative-poster" data-ng-src="{{movie.img_url | defaultImage}}" src="http://img1.daumcdn.net/thumb/C155x225/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F146F1B10ACE2AE7DF12090" alt="{{movie.title_kor}} 포스터">
+	              <figcaption>
+	                <div class="movie-relative-title">{{movie.title_kor}}</div>
+	                <div class="movie-relative-grade-group">
+                    <div class="movie-relative-stars-wrap">
+                      <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+                    </div>
+	                  <div class="movie-grade small-movie-grade">{{movie.star_average}}</div>
+	                </div>
+	              </figcaption>
 		            </figure>
 		          </a>
 		        </li>
 		      </ul>
 		      <button class="movie-relative-show-more-button">더보기</button>
 		    </section>
-		  </div>
 		</div>
-
+            <!--  <div data-movieinfo-related-star></div> -->
 		<!-- 평점 -->
 		<div class="container">
-		  <section class="movie-comment">
+		  <section class="movie-comment" data-ng-controller="movieinfoCommentController">
 		    <div class="movie-comment-wrap">
 		      <h1 class="movie-comment-heading m-col-1 row">평점</h1>
 		      <button class="movie-comment-add-button">평점 등록하기</button>
@@ -171,7 +168,7 @@
 		        <div class="star-rating-group">
 		          <form action="#" id="star_rating">
 		            <input
-		              value="0"
+		              value="0.0"
 		              id="star0"
 		              type="radio"
 		              name="rating"
@@ -186,7 +183,8 @@
                   id="star0.5"
                   type="radio"
                   name="rating"
-                  class="readable-hidden">
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
                 <label for="star0.5">
                   <span class="">0.5</span>
                   <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -210,11 +208,12 @@
                 </label>
 
 		            <input
-		              value="1"
+		              value="1.0"
 		              id="star1"
 		              type="radio"
 		              name="rating"
-		              class="readable-hidden">
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
 		            <label for="star1">
 		              <span class="">1</span>
 		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -242,7 +241,8 @@
                   id="star1.5"
                   type="radio"
                   name="rating"
-                  class="readable-hidden">
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
                 <label for="star1.5">
                   <span class="">1.5</span>
                   <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -266,11 +266,12 @@
                 </label>
 
 		            <input
-		              value="2"
+		              value="2.0"
 		              id="star2"
 		              type="radio"
 		              name="rating"
-		              class="readable-hidden">
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
 		            <label for="star2">
 		              <span class="">2</span>
 		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -298,7 +299,8 @@
                   id="star2.5"
                   type="radio"
                   name="rating"
-                  class="readable-hidden">
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
                 <label for="star2.5">
                   <span class="">2.5</span>
                   <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -322,11 +324,12 @@
                 </label>
 
 		            <input
-		              value="3"
+		              value="3.0"
 		              id="star3"
 		              type="radio"
 		              name="rating"
-		              class="readable-hidden">
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
 		            <label for="star3">
 		              <span class="">3</span>
 		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -354,7 +357,8 @@
                   id="star3.5"
                   type="radio"
                   name="rating"
-                  class="readable-hidden">
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
                 <label for="star3.5">
                   <span class="">3.5</span>
                   <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -378,11 +382,12 @@
                 </label>
 
 		            <input
-		              value="4"
+		              value="4.0"
 		              id="star4"
 		              type="radio"
 		              name="rating"
-		              class="readable-hidden">
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
 		            <label for="star4">
 		              <span class="">4</span>
 		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -410,7 +415,8 @@
                   id="star4.5"
                   type="radio"
                   name="rating"
-                  class="readable-hidden">
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
                 <label for="star4.5">
                   <span class="">4.5</span>
                   <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -434,11 +440,12 @@
                 </label>
 
 		            <input
-		              value="5"
+		              value="5.0"
 		              id="star5"
 		              type="radio"
 		              name="rating"
-		              class="readable-hidden">
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
 		            <label for="star5">
 		              <span class="">5</span>
 		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -467,26 +474,24 @@
 		          </form>
 		        </div>
 		        <div class="comment-writing-group">
-		          <textarea placeholder="감상평"></textarea>
+		          <textarea placeholder="감상평" data-ng-model="movieinfoComment_data.movieinfoComment_movie.content"></textarea>
 		        </div>
 		        <div class="movie-comment-submit-button-group">
-		          <button class="movie-comment-submit-button">완료</button>
+		          <button class="movie-comment-submit-button" data-ladda="movieinfoComment_data.is_creating" data-ng-click="create()">완료</button>
 		        </div>
 		      </div>
 
                    <!-- comment get start -->
-		      <ul class="movie-comment-list row m-col-4" data-ng-controller="movieinfoCommentController">
+		      <ul class="movie-comment-list row m-col-4">
 		        <li data-ng-repeat="movie in filteredMovies=(movieinfoComment_data.movies | filter:search )">
-		          <img class="movie-comment-user-image" data-ng-src="{{movie.author.profile_img}}" src="images/user-1.jpg" alt="">
+		          <img class="movie-comment-user-image" data-ng-src="{{movie.author.profile_img}}" src="images/icon/icon-nouser.svg" alt="">
 		          <div class="movie-comment-right-group m-col-3 t-col-7">
 		            <p class="movie-comment-paragraph ">{{movie.content}}</p>
 		            <div class="movie-comment-star-group row">
-		              <div class="medium-star"></div>
-		              <div class="medium-star"></div>
-		              <div class="medium-star"></div>
-		              <div class="medium-star"></div>
-		              <div class="medium-non-star"></div>
-		              <div class="medium-movie-grade">{{movie.star}}</div>
+		              <div class="movie-comment-stars-wrap">
+		                <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+		              </div>
+		              <div class="movie-grade medium-movie-grade">{{movie.star}}</div>
 		            </div>
 		            <div class="write-info-group">
 		              <span>{{movie.created | date:'yyyy-MM-dd'}} | {{movie.author.nickname}}</span>

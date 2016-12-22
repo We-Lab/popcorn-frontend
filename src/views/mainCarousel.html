@@ -2,25 +2,27 @@
       <div id="main-carousel" aria-label="주요 영화 정보" data-ng-cloak>
 
       <article data-label="팝콘 주요 영화 1" data-ng-repeat="movie in filteredMovies=(share_data.movies | filter:search )" data-ng-init="$last && repeatComplete()">
-        <!-- <pre>{{ share_data.movies|json }}</pre> -->
-         <div class="container ui-carousel-panels">
-           <div class="row ui-carousel-movie-info">
-             <a href data-ui-sref="edit({'id': movie.id})">
-            <!--  <a href data-ui-sref="edit({'id': movie.id})"> -->
-               <span class="popcorn-label">[Popcorn 추천영화]</span>
-               <h2>{{movie.title_kor}}<span>({{movie.title_eng}})</span></h2>
-               <div class="stars">
-                 <img src="images/main-carousel/stars.png" alt="">
-                 <span>3.9</span>
-               </div>
-               <ul role="presentation">
-                 <li>{{movie.genre[0].content}}{{movie.genre[1].content}}</li>
-                 <li>{{movie.created_year}}</li>
-                 <li>{{movie.run_time}}</li>
-                 <li>{{movie.making_country[0].content}}</li>
-                 <li>{{movie.grade.content}}</li>
-               </ul>
-               </a>
+
+        <div class="container ui-carousel-panels">
+          <div class="row ui-carousel-movie-info">
+            <a href data-ui-sref="edit({'id': movie.id})">
+
+              <span class="popcorn-label">[Popcorn 추천영화]</span>
+              <h2>{{movie.title_kor}}<span>({{movie.title_eng}})</span></h2>
+              <div class="stars">
+                <div class="movie-carousel-stars-wrap">
+                  <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+                </div>
+                <span class="movie-grade">{{movie.star_average | number: 2}}</span>
+              </div>
+              <ul role="presentation">
+                <li>{{movie.genre[0].content}}{{movie.genre[1].content}}</li>
+                <li>{{movie.created_year}}</li>
+                <li>{{movie.run_time}}</li>
+                <li>{{movie.making_country[0].content}}</li>
+                <li>{{movie.grade.content}}</li>
+              </ul>
+            </a>
 
               <div class="video-thumbnail">
                 <img data-ng-src="{{movie.image_set[0].url}}" src="images/main-carousel/t-carousel-thumbnail.jpg" alt="예고편" class="m-hidden d-hidden" width="234" height="152">
@@ -32,10 +34,10 @@
                 <div class="video-dim-background">
                   <div class="video-pop">
                         <div class="rwd-iframe-container">
-                        <!--   <iframe
+                         <!--  <iframe
                               width="640"
                               height="360"
-                              data-ng-src="{{movie.main_trailer | trustThisUrl}}">
+                              data-ng-src="{{movie.main_trailer | trustAsResourceUrl}}">
                               </iframe> -->
                               <!-- <iframe title='<판도라> 만장일치 극찬 영상 ' width='1000px' height='562px' controls="controls" data-ng-src="{{movie.main_trailer}}" frameborder='0' scrolling='no' ></iframe> -->
                         </div>

@@ -11,6 +11,7 @@ gulp.task('build', ()=>{
 
   runSequence(
     ['clean'],
+    ['move-views'],
     ['iconfonts', 'sprites'],
     ['move-fonts', 'html', 'sass', 'webpack-build', 'images']
   );

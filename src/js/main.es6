@@ -2,41 +2,33 @@
 
 
 // 빌드시 아래 주석을 해제한 후 빌드
-
-
-let angular = require('angular');
-
 require('./lib/jquery');
 require('./lib/jquery.easing.min');
 
+let angular = require('angular');
+
+
 // 의존 모듈 로드
 require('angular-resource');
-// require('angular-auto-validate');
 require('ladda');
 require('angular-ladda');
 require('angular-ui-router');
-// require('ng-infinite-scroll');
-// require('spin');
-// require('angular-spinner');
+
 
 // App 모듈 정의 (의존 모듈 주입)
 let popcorn = angular.module('PopcornListApp', [
 	'ngResource',
-	// 'jcs-autoValidate',
 	'angular-ladda',
 	'ui.router',
-	]);
- // angular.module('filters', []).filter('trustThisUrl', ['$sce', function($sce) {
- //    return function(val) {
- //        return $sce.trustAsResourceUrl(val);
- //    };
-// angular.module('filters-module', [])
-// .filter('trustAsResourceUrl', ['$sce', function($sce) {
-//     return function(val) {
-//         return $sce.trustAsResourceUrl(val);
-//     };
-// }]);
-//
+	]).
+      filter('trustAsResourceUrl', ['$sce', function($sce) {
+     return function(val) {
+        return $sce.trustAsResourceUrl(val);
+    };
+ }]);
+
+
+
 
 
 
@@ -120,16 +112,7 @@ popcorn.config([
 		}
 	});
 
-	// .state('list',{
-	// 		'url': '/',
-	// 		'templateUrl' : 'views/mainCarousel.html',
-	// 		'controller' : 'carouselController'
-	// })
-	// .state('edit',{
-	// 		'url': '/detail/:id',
-	// 		'templateUrl' : 'views/movieinfo.html',
-	// 		'controller' : 'moviedetailController'
-	// });
+
 
       //$urlRouterProvider
       $urlRouterProvider.otherwise('/');
@@ -147,19 +130,18 @@ popcorn.config([
 
 
 
+
+
+
 // --------------------------------------------------------
 // directive
 // --------------------------------------------------------
 require('./directives/mainCarousel');
 require('./directives/mainRecommend');
-
-// require('./directives/movieinfoDirective');
-
-
+require('./directives/seachStar');
 
 require('./controllers/main/carouselController');
 require('./controllers/main/rankingController');
-// require('./controllers/main/DetailController');
 require('./controllers/main/recommendSelectController');
 require('./controllers/main/recommendCountryController');
 require('./controllers/main/recommendGradeController');
@@ -205,7 +187,7 @@ require('./services/main/recommendGradeDataShareService');
 // --------------------------------------------------------
 require('./services/movieinfodetail/moviedetailDataShareService');
 require('./services/movieinfodetail/movieinfoRelatedDataShareService');
-require('./services/movieinfodetail/movieinfoCommentController');
+require('./services/movieinfodetail/movieinfoCommentDataShareService');
 require('./services/movieinfodetail/movieinfoFamousLineDataShareService');
 // --------------------------------------------------------
 // service: signup
@@ -218,23 +200,16 @@ require('./services/signup/userinfoDataShareService');
 // --------------------------------------------------------
 require('./services/search/searchDataShareService');
 
-// require('./directives/header');
+
 
 // Filters
 require('./filters/readingZeroFilter');
 require('./filters/defaultimageFilter');
 
 // main-script
-
-
 require('./main-script/header-scroll');
 require('./main-script/recommend-carousel');
 require('./main-script/ranking-hover');
 require('./movie-info/movieinfo');
 require('./movie-info/showGrade.js');
 require('./ratingStars.js');
-// require('./main-script/scroll-effect.js');
-
-// require('./main-script/ui-carousel');
-
-// require('./main-script/recommend-choice');

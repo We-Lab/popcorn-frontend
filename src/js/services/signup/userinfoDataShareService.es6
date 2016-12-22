@@ -6,15 +6,17 @@ let angular = require('angular');
 angular
   .module('PopcornListApp')
   .factory('userinfo', ['$resource', function($resource){
+
     return $resource(
       'https://django-api.com/member/my-info/',{},
       { 'get' : {
-            method: 'get', 
-            headers: {'Authorization' : 'Token '+window.localStorage['key']}
-          }
-      });
+                   'method': 'get', 
+                   'headers': {'Authorization' : 'Token '+window.localStorage['key'] }
+                   }
+       }
+       );
   }])
- 
+
   .service('userinfoDataShareService', ['userinfo' , (userinfo)=>{  
      var _service = {
         'userinfo_person' : null,

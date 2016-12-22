@@ -21,7 +21,7 @@ angular
       $scope.search_data.search_movie = movie;
     };
 
-    $scope.$watch('search', (newValue, oldValue, scope)=>{
+    $scope.$watch('search', (newValue)=>{
        $scope.search_data.doSearch(newValue);
        console.log(newValue);
     });

@@ -8,7 +8,8 @@
 @import "modules/grid/grid_functions"
 @import "modules/grid/grid_mixins"
 
-
+.stars-rating
+  width: 100%
 
 html
   font-family: $spoqa-R
@@ -172,15 +173,15 @@ p
         width: px2vw(12px,$m-container-width)
         height: px2vw(12px,$m-container-width)
       +respond-to($t-container-width)
-        +size(13px)
-        position: absolute
-        top: 7px
-        left: 260px
-      +respond-to($d-container-width)
         +size(15px)
         position: absolute
-        top: 12px
-        left: 260px
+        top: 10px
+        left: 360px
+      +respond-to($d-container-width)
+        +size(18px)
+        position: absolute
+        top: 7px
+        left: 480px
 
 
 .header-userinfo
@@ -392,22 +393,38 @@ p
       +respond-to($d-container-width)
         +font(size 20px)
   .stars
+    position: relative
     @extend %reset-box-model
+    +respond-to($m-container-width)
+      margin-bottom: px2vw(10px,$m-container-width)
     +respond-to($t-container-width)
-      +size(190px 25px)
+      // +size(190px 25px)
+      width: 190px
       margin-top: 10px
     +respond-to($d-container-width)
-      +size(210px 40px)
+      // +size(210px 40px)
+      width: 220px
+      margin-bottom: 20px
     img
       margin-right: 25px
     span
       color: $color-yellow
+      position: absolute
       +respond-to($m-container-width)
+        top: 0
         font-size: px2vw(16px,$m-container-width)
+        left: px2vw(100px,$m-container-width)
+        line-height: px2vw(20px,$m-container-width)
       +respond-to($t-container-width)
+        top: 50%
         +font(size 20px line-height 20px)
+        left: 160px
+        transform: translateY(-41%)
       +respond-to($d-container-width)
-        +font(size 28px line-height 18px)
+        top: 50%
+        +font(size 24px line-height 24px)
+        left: 200px
+        transform: translateY(-41%)
   ul
     @extend %reset-list
     @extend %reset-box-model
@@ -508,6 +525,14 @@ p
           background-size: 50px 50px
       &:active
         transform: translate(-50%, -47%)
+
+.movie-carousel-stars-wrap
+  +respond-to($m-container-width)
+    width: px2vw(90px,$m-container-width)
+  +respond-to($t-container-width)
+    width: 150px
+  +respond-to($d-container-width)
+    width: 180px
 
 // video-dim style
 .video-dim-background
@@ -707,26 +732,47 @@ p
       &:last-of-type::after
         border: 0
   .stars
+    position: relative
     @extend %reset-box-model
     +respond-to($m-container-width)
       margin-top: px2vw(16px,$m-container-width)
     +respond-to($t-container-width)
-      +size(190px 25px)
+      // +size(190px 25px)
+      width: 190px
       margin-top: 10px
     +respond-to($d-container-width)
-      +size(210px 40px)
+      // +size(210px 40px)
+      width: 210px
       margin-top: 10px
     img
       margin-right: 25px
     span
+      display: inline-block
       color: $color-yellow
+      // top: 50%
       +respond-to($m-container-width)
+        position: absolute
+        left: px2vw(110px,$m-container-width)
         font-size: px2vw(14px,$m-container-width)
-        line-height: px2vw(14px,$m-container-width)
+        line-height: px2vw(21px,$m-container-width)
       +respond-to($t-container-width)
         +font(size 16px line-height 15px)
+        left: 10px
+        // transform: translateY(-50%)
       +respond-to($d-container-width)
         +font(size 16px line-height 15px)
+        left: 10px
+        // transform: translateY(-55%)
+
+.movie-top1-stars-wrap
+  display: inline-block
+  +respond-to($m-container-width)
+    width: px2vw(100px, $m-container-width)
+  +respond-to($t-container-width)
+    width: 110px
+  +respond-to($d-container-width)
+    width: 110px
+
 
 .ranking-top2-wrapper
    +respond-to($t-container-width)
@@ -810,24 +856,46 @@ p
       &:last-of-type::after
         border: 0
   .stars
+    position: relative
     @extend %reset-box-model
     +respond-to($t-container-width)
-      +size(190px 25px)
+      // +size(190px 25px)
+      width: 190px
       margin-top: 10px
     +respond-to($d-container-width)
-      +size(210px 40px)
+      // +size(210px 40px)
+      width: 210px
       margin-top: 10px
     img
       margin-right: 25px
     span
+      position: absolute
       color: $color-yellow
       +respond-to($m-container-width)
-        font-size: px2vw(14px,$m-container-width)
-        line-height: px2vw(14px,$m-container-width)
+        font-size: px2vw(10px,$m-container-width)
+        line-height: px2vw(16px,$m-container-width)
+        top: 0
+        left: px2vw(80px,$m-container-width)
       +respond-to($t-container-width)
-        +font(size 16px line-height 15px)
+        +font(size 14px line-height 15px)
+        top: 50%
+        transform: translateY(-55%)
+        left: 110px
       +respond-to($d-container-width)
-        +font(size 16px line-height 15px)
+        +font(size 14px line-height 15px)
+        top: 50%
+        transform: translateY(-55%)
+        left: 110px
+
+.movie-top2-stars-wrap
+  display: inline-block
+  +respond-to($m-container-width)
+    width: px2vw(75px, $m-container-width)
+  +respond-to($t-container-width)
+    width: 100px
+  +respond-to($d-container-width)
+    width: 100px
+
 
 //recommend
 
@@ -863,7 +931,7 @@ p
 
 .recommend-choice
   +respond-to($m-container-width)
-    height: px2vw(250px,$m-container-width)
+    height: px2vw(200px,$m-container-width)
   +respond-to($t-container-width)
     height: 230px
   +respond-to($d-container-width)
@@ -910,6 +978,7 @@ p
   position: relative
   top: 0
   left: 0
+  display: none
 .recommend-tabpanel-wrapper
   position: absolute
   top: 20px
@@ -1025,20 +1094,33 @@ p
   float: left
   padding-bottom: 28px
   h1
-   @extend %reset-box-model
-   @extend .h1-style
-   @extend .h1-position
+    @extend %reset-box-model
+    @extend .h1-style
+    @extend .h1-position
   a
-   @extend %reset-a
-   color: $color-black
-   display: block
-   .review-user-image
-     float: left
-     border-radius: 50px
-     +size(60px)
+    @extend %reset-a
+    color: $color-black
+    display: block
+    .review-user-image
+      float: left
+      border-radius: 50px
+      +respond-to($m-container-width)
+        margin-top: px2vw(10px, $m-container-width)
+      +respond-to($t-container-width)
+        margin-top: 10px
+      +respond-to($d-container-width)
+        margin-top: 10px
+      +size(60px)
+
 .review-user-comment
   // padding-left: 15px
   height: 100px
+  +respond-to($m-container-width)
+    margin-bottom: px2vw(10px, $m-container-width)
+  +respond-to($t-container-width)
+    margin-bottom: 10px
+  +respond-to($d-container-width)
+    margin-bottom: 10px
   time
     +font(size 9px)
   .review-user-name
@@ -1048,12 +1130,27 @@ p
     +font(size 14px)
     color: $color-blue
   .review-stars
-    img
-      +size(66px 10px)
+    position: relative
+    // img
+    //   +size(66px 10px)
     span
-      +font(size 12px)
-      position: relative
-      top: -8px
+      position: absolute
+      top: 0
+      +respond-to($m-container-width)
+        left: px2vw(75px, $m-container-width)
+        line-height: px2vw(16px, $m-container-width)
+        font-size: px2vw(12px, $m-container-width)
+      +respond-to($t-container-width)
+        left: 80px
+        font-size: 12px
+        line-height: 16px
+      +respond-to($d-container-width)
+        left: 85px
+        font-size: 12px
+        // line-height: 16px
+      // +font(size 12px)
+      // position: relative
+      // top: -8px
   .review-desc
     @extend %reset-box-model
     overflow: hidden
@@ -1070,6 +1167,14 @@ p
     +respond-to($d-container-width)
       -webkit-line-clamp: 1
       +font(size 12px line-height 21px)
+
+.movie-review-stars-wrap
+  +respond-to($m-container-width)
+    width: px2vw(65px, $m-container-width)
+  +respond-to($t-container-width)
+    width: 70px
+  +respond-to($d-container-width)
+    width: 75px
 
 //magazine
 .magazine
@@ -1126,12 +1231,21 @@ p
     .magazine-content-main-title
       @extend %reset-box-model
       color: $color-blue
+      overflow: hidden
+      text-overflow: ellipsis
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      word-wrap: break-word
       +respond-to($m-container-width)
         +font(size 16px)
+        width: 100%
+        -webkit-line-clamp: 2
       +respond-to($t-container-width)
         +font(size 20px)
+        -webkit-line-clamp: 2
       +respond-to($d-container-width)
         +font(size 24px)
+        -webkit-line-clamp: 2
     .magazine-content-main-desc
       overflow: hidden
       text-overflow: ellipsis
@@ -1225,15 +1339,27 @@ p
     .magazine-content-title
       @extend %reset-box-model
       color: $color-blue
+      overflow: hidden
+      text-overflow: ellipsis
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      word-wrap: break-word
       +respond-to($m-container-width)
         padding-left: px2vw(10px,$m-container-width)
         +font(size 14px)
+        -webkit-line-clamp: 2
       +respond-to($t-container-width)
-        padding-left: 10px
+        padding:
+          left: 10px
+          right: 5px
         +font(size 14px)
+        -webkit-line-clamp: 2
       +respond-to($d-container-width)
-        padding-left: 10px
+        padding:
+          left: 10px
+          right: 5px
         +font(size 16px)
+        -webkit-line-clamp: 2
     .magazine-content-desc
       @extend %reset-box-model
       color: $color-black

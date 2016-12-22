@@ -1,0 +1,24 @@
+ <div data-ng-controller="movieinfoRelatedController">
+		    <section class="movie-relative row">
+		      <h1 class="movie-relative-heading d-col-1">연관 영화</h1>
+		      <ul class="movie-relative-list d-col-3">
+		        <li class="m-col-1 t-col-2" data-ng-repeat="movie in filteredMovies=(movieinfoRelated_data.movies | filter:search )" data-ng-init="$last && repeatComplete()">
+		        <a href="#">
+		          <figure>
+		              <img data-ng-src="{{movie.img_url | defaultImage}}" src="http://img1.daumcdn.net/thumb/C155x225/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F146F1B10ACE2AE7DF12090" alt="{{movie.title_kor}} 포스터">
+		              <figcaption>
+		                <div class="movie-relative-title">{{movie.title_kor}}</div>
+		                <div class="movie-relative-grade-group">
+		                      	 <div class="stars-wrap">
+                				  <div class="stars-rating-movieinforelated"></div>
+                						</div>
+		                  <div class="movie-grade-movieinforelated small-movie-grade">{{movie.star_average  | number:2 }}</div>
+		                </div>
+		              </figcaption>
+		            </figure>
+		          </a>
+		        </li>
+		      </ul>
+		      <button class="movie-relative-show-more-button">더보기</button>
+		    </section>
+		</div>

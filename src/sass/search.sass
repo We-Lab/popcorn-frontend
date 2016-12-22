@@ -40,7 +40,7 @@
     padding: 38px 0 0 0
 
 .pixed-header-logo
-  @extend %rwd-bg
+  // @extend %rwd-bg
   display: block
   padding-bottom: 19.46%
   cursor: pointer
@@ -178,9 +178,20 @@
   +respond-to($d-container-width)
     margin-top: 20px
 
-.movie-search-result-poster
+.movie-search-result-poster-wrap
   border-radius: 10px
   box-shadow: 3px 3px 10px $color-black
+  overflow: hidden
+  +respond-to($m-container-width)
+    height: px2vw(220px, $m-container-width)
+  +respond-to($t-container-width)
+    height: 382px
+  +respond-to($d-container-width)
+    height: 422px
+
+
+.movie-search-result-poster
+  width: 100%
 
 .movie-search-info
   position: relative
@@ -213,6 +224,14 @@
       font-size: 14px
     +respond-to($d-container-width)
       font-size: 14px
+
+.movie-search-stars-wrap
+  +respond-to($m-container-width)
+    width: px2vw(80px, $m-container-width)
+  +respond-to($t-container-width)
+    width: 120px
+  +respond-to($d-container-width)
+    width: 120px
 
 .movie-search-info-table
   +respond-to($m-container-width)

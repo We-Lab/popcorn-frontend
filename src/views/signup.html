@@ -1,9 +1,9 @@
 
- <div class="container show-">
+ <div class="container signup-page show-">
 	 	<div class="row">
 	 		<form name="signUpForm" class="form m-col-4 t-col-6 t-push-1 d-col-6 d-push-3" role="form">
 	 			<div class="legend-wrap">
-	 				<legend class="m-col-4 signup-legend">POPCORN | 회원가입</legend>
+	 				<legend class="m-col-4 signup-legend">회원 가입</legend>
 	 			</div>
 				<div class="signup-wrap m-col-4 t-col-4 t-push-1 d-col-4 d-push-1">
 					<div class="signup-id-wrap">
@@ -20,9 +20,9 @@
 					</div>
 					<div class="signup-photo-wrap">
 						<span>사진</span>
-						<input id="sign-up-photo" type="file" name="photo" onchange="javascript:document.getElementById('signup_file_route').value=this.value">
+						<input id="sign-up-photo" type="file" name="photo" onchange="javascript:document.getElementById('signup_file_route').value=this.value" data-ng-model="signup_data.signup_person.profile_img">
 						<label class="signup-label" for="sign-up-photo">찾기</label>
-						<input type="text" readonly="readonly" title="File Route" class="form-control" id="signup_file_route" data-ng-model="signup_data.signup_person.profile_img">
+						<input type="text" readonly="readonly" title="File Route" class="form-control" id="signup_file_route">
 					</div>
 					<div class="signup-password-wrap">
 						<label class="signup-label" for="sign-up-password">비밀번호</label>

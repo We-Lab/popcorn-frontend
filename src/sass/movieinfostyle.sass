@@ -36,7 +36,8 @@ li
 img
   vertical-align: top
 
-
+.stars-rating
+  width: 100%
 
 // --------------------------------------------------------
 // 영화 정보
@@ -185,11 +186,11 @@ img
   +respond-to($t-container-width)
     font-size: 20px
     padding-left: 20px
-    line-height: 20px
+    line-height: 23px
   +respond-to($d-container-width)
     font-size: 20px
     padding-left: 20px
-    line-height: 20px
+    line-height: 23px
   // position: relative
   // top: 0
 
@@ -640,7 +641,7 @@ figure
   +respond-to($d-container-width)
     li
       margin-bottom: 10px
-  img
+  .movie-relative-poster
     width: 100%
     +respond-to($d-container-width)
       width: 105px
@@ -675,45 +676,54 @@ figure
   div
     float: left
 
-.small-star
+.movie-relative-stars-wrap
   +respond-to($m-container-width)
-    +size(px2vw(9px, $m-container-width))
-    margin-right: px2vw(1px, $m-container-width)
+    width: px2vw(65px, $m-container-width)
   +respond-to($t-container-width)
-    +size(10px)
-    margin-right: 5px
+    width: 75px
   +respond-to($d-container-width)
-    +size(14px)
-    margin-right: 5px
-  background: url(../images/icon/icon-star.svg)
-  background-size: contain
+    width: 85px
 
-.small-non-star
-  +respond-to($m-container-width)
-    +size(px2vw(9px, $m-container-width))
-    margin-right: px2vw(1px, $m-container-width)
-  +respond-to($t-container-width)
-    +size(10px)
-    margin-right: 5px
-  +respond-to($d-container-width)
-    +size(14px)
-    margin-right: 5px
-  background: url(../images/icon/icon-star-border.svg)
-  background-size: contain
+// .small-star
+//   +respond-to($m-container-width)
+//     +size(px2vw(9px, $m-container-width))
+//     margin-right: px2vw(1px, $m-container-width)
+//   +respond-to($t-container-width)
+//     +size(10px)
+//     margin-right: 5px
+//   +respond-to($d-container-width)
+//     +size(14px)
+//     margin-right: 5px
+//   background: url(../images/icon/icon-star.svg)
+//   background-size: contain
+//
+// .small-non-star
+//   +respond-to($m-container-width)
+//     +size(px2vw(9px, $m-container-width))
+//     margin-right: px2vw(1px, $m-container-width)
+//   +respond-to($t-container-width)
+//     +size(10px)
+//     margin-right: 5px
+//   +respond-to($d-container-width)
+//     +size(14px)
+//     margin-right: 5px
+//   background: url(../images/icon/icon-star-border.svg)
+//   background-size: contain
 
 .small-movie-grade
+  color: $color-yellow
   +respond-to($m-container-width)
     font-size: px2vw(9px, $m-container-width)
     padding-left: px2vw(2px, $m-container-width)
     line-height: px2vw(10px, $m-container-width)
   +respond-to($t-container-width)
-    font-size: 10px
-    padding-left: 5px
-    line-height: 10px
+    font-size: 12px
+    padding-left: 8px
+    line-height: 18px
   +respond-to($d-container-width)
     font-size: 14px
-    padding-left: 5px
-    line-height: 14px
+    padding-left: 8px
+    line-height: 20px
 
 .movie-relative-show-more-button
   position: absolute
@@ -1056,46 +1066,62 @@ figure
 
 .movie-comment-star-group
   display: block
+  position: relative
   div
     float: left
 
-.medium-star
+.movie-comment-stars-wrap
   +respond-to($m-container-width)
-    +size(px2vw(11px, $m-container-width))
-    margin-right: px2vw(1px, $m-container-width)
+    width: px2vw(100px, $m-container-width)
   +respond-to($t-container-width)
-    +size(20px)
-    margin-right: 5px
+    width: 110px
   +respond-to($d-container-width)
-    +size(20px)
-    margin-right: 5px
-  background: url(../images/icon/icon-star.svg)
-  background-size: contain
+    width: 110px
 
-.medium-non-star
-  +respond-to($m-container-width)
-    +size(px2vw(11px, $m-container-width))
-    margin-right: px2vw(1px, $m-container-width)
-  +respond-to($t-container-width)
-    +size(20px)
-    margin-right: 5px
-  +respond-to($d-container-width)
-    +size(20px)
-    margin-right: 5px
-  background: url(../images/icon/icon-star-border.svg)
-  background-size: contain
+// .medium-star
+//   +respond-to($m-container-width)
+//     +size(px2vw(11px, $m-container-width))
+//     margin-right: px2vw(1px, $m-container-width)
+//   +respond-to($t-container-width)
+//     +size(20px)
+//     margin-right: 5px
+//   +respond-to($d-container-width)
+//     +size(20px)
+//     margin-right: 5px
+//   background: url(../images/icon/icon-star.svg)
+//   background-size: contain
+//
+// .medium-non-star
+//   +respond-to($m-container-width)
+//     +size(px2vw(11px, $m-container-width))
+//     margin-right: px2vw(1px, $m-container-width)
+//   +respond-to($t-container-width)
+//     +size(20px)
+//     margin-right: 5px
+//   +respond-to($d-container-width)
+//     +size(20px)
+//     margin-right: 5px
+//   background: url(../images/icon/icon-star-border.svg)
+//   background-size: contain
 
 .medium-movie-grade
   color: $color-black
   +respond-to($m-container-width)
-    font-size: px2vw(11px, $m-container-width)
-    padding-left: px2vw(2px, $m-container-width)
-    line-height: px2vw(12px, $m-container-width)
+    // position: relative
+    font-size: px2vw(14px, $m-container-width)
+    padding-left: px2vw(10px, $m-container-width)
+    line-height: px2vw(20px, $m-container-width)
   +respond-to($t-container-width)
+    position: absolute
+    top: 0
+    left: 125px
     font-size: 16px
     padding-left: 5px
-    line-height: 21px
+    line-height: 24px
   +respond-to($d-container-width)
+    position: absolute
+    top: 0
+    left: 125px
     font-size: 16px
     padding-left: 5px
     line-height: 21px

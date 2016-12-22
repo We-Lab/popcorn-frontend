@@ -208,7 +208,7 @@ angular
             var $prevBtn = $('.ui-carousel-button-prev');
             var $nextBtn = $('.ui-carousel-button-next');
             var prevText = $tabs.eq(index - 1).find('span').text();
-            var nextText = $tabs.eq(index + 1 === 5 ? 0 : index + 1).find('span').text();
+            var nextText = $tabs.eq(index + 1 === 3 ? 0 : index + 1).find('span').text();
 
             $prevBtn.find('span').text(prevText);
             $prevBtn.attr('title', prevText);
