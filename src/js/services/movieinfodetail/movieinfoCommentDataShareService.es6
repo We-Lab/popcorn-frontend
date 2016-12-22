@@ -14,12 +14,12 @@ angular
           },
         'create': { 
              method:'post',
-             headers: {'Authorization' : 'Token '+window.localStorage['key']}
+             headers: {'Authorization' : 'Token 918627bfb41049b4d6c8d28b9f06c81bb435b0bd'}
            }
         }
       );
   }])
-
+//'Token '+window.localStorage['key']
    .service('movieinfoCommentDataShareService', ['movieinfoComment' , (movieinfoComment)=>{  
 
     let initServiceSetting = ()=> {

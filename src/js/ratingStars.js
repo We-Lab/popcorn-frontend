@@ -40,12 +40,12 @@
 
     // console.log(movie_grades);
     // console.log(movie_grades_numbers);
-    console.log(stars_ratings);
+    // console.log(stars_ratings);
   // });
 
 
 
 
-  },1000);
+  },1200);
 
 })(this, jQuery);

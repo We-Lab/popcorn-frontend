@@ -29,23 +29,7 @@ let popcorn = angular.module('PopcornListApp', [
 
 
 
- // angular.module('filters', []).filter('trustThisUrl', ['$sce', function($sce) {
- //    return function(val) {
- //        return $sce.trustAsResourceUrl(val);
- //    };
-// angular.module('filters-module', [])
-// .filter('trustAsResourceUrl', ['$sce', function($sce) {
-//     return function(val) {
-//         return $sce.trustAsResourceUrl(val);
-//     };
-// }]);
-//
 
-// popcorn.filter('trustThisUrl',function(){
-//      return function(val) {
-//          return $sce.trustAsResourceUrl(val);
-//     };
-//   });
 
 
 // 모듈 환경 설정
@@ -154,8 +138,7 @@ popcorn.config([
 // --------------------------------------------------------
 require('./directives/mainCarousel');
 require('./directives/mainRecommend');
-require('./directives/movieinfoRelatedStar');
-// require('./directives/movieinfoDirective');
+require('./directives/seachStar');
 
 require('./controllers/main/carouselController');
 require('./controllers/main/rankingController');

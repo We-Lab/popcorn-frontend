@@ -13,7 +13,7 @@
                 <div class="movie-carousel-stars-wrap">
                   <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
                 </div>
-                <span class="movie-grade">{{movie.star_average}}</span>
+                <span class="movie-grade">{{movie.star_average | number: 2}}</span>
               </div>
               <ul role="presentation">
                 <li>{{movie.genre[0].content}}{{movie.genre[1].content}}</li>
@@ -34,11 +34,11 @@
                 <div class="video-dim-background">
                   <div class="video-pop">
                         <div class="rwd-iframe-container">
-                          <iframe
+                         <!--  <iframe
                               width="640"
                               height="360"
                               data-ng-src="{{movie.main_trailer | trustAsResourceUrl}}">
-                              </iframe>
+                              </iframe> -->
                               <!-- <iframe title='<판도라> 만장일치 극찬 영상 ' width='1000px' height='562px' controls="controls" data-ng-src="{{movie.main_trailer}}" frameborder='0' scrolling='no' ></iframe> -->
                         </div>
                         <button class="video-pop-close st-pop-close-button"><span class="readable-hidden">닫기</span></button>
