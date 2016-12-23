@@ -1,0 +1,25 @@
+
+
+  <div class="container" data-ng-controller="searchController">
+
+    <main>
+
+      <form role="search" class="movie-search-form m-col-4 t-col-8 d-col-12">
+        <input
+            type="text"
+            aria-labeledby="검색어 입력"
+            class=""
+            id="search-everything"
+            placeholder="영화명,장르,배우명,감독명"
+            data-ng-model="search"
+            data-ng-model-options=" {'debounce':300} ">
+        <button type="submit" aria-labeledby="검색" class="movie-search-submit-button"></button>
+      </form>
+
+     <div data-search-star></div>
+
+    </main>
+
+  </div>
+
+ <div data-ng-include=" 'views/footer.html' "></div>

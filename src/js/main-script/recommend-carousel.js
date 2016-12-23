@@ -226,25 +226,25 @@ function readingZeroNum(idx) {
 })(this, jQuery);
 
 
-(function(global, $){
-setTimeout(function(){
+// (function(global, $){
+// setTimeout(function(){
 
-  $recomment_choice_tablinks_finish = $('.recommend-choice-tablinks-finish');
- $recommend_movie_random6 =$('#recommend-movie');
+//   $recomment_choice_tablinks_finish = $('.recommend-choice-tablinks-finish');
+//  $recommend_movie_random6 =$('#recommend-movie');
 
- $recomment_choice_tablinks_finish.on('click',function(){
-       console.log('click');
-       if($recommend_movie_random6.is(':hidden')){
-        $recommend_movie_random6.slideDown('fast');
-       }
-       else{
-         $recommend_movie_random6.slideUp('fast');
-       }
+//  $recomment_choice_tablinks_finish.on('click',function(){
+//        console.log('click');
+//        if($recommend_movie_random6.is(':hidden')){
+//         $recommend_movie_random6.slideDown('fast');
+//        }
+//        else{
+//          $recommend_movie_random6.slideUp('fast');
+//        }
 
- });
+//  });
 
-},800);
-})(this, jQuery);
+// },800);
+// })(this, jQuery);
 
 
 
