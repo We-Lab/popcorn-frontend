@@ -1,0 +1,35 @@
+  <article data-label="검색된 영화" class="movie-search-result" data-ng-repeat="movie in filteredMovies=(search_data.movies | filter:search)" data-ng-init="$last && repeatComplete()">
+        <div class="movie-search-result-poster-wrap m-col-2 t-col-3 d-col-3">
+          <img class="movie-search-result-poster" data-ng-src="{{movie.img_url}}" src="http://t1.daumcdn.net/movie/3f5df00f56b2a4c2c7baebea12b456320cf47c63" alt="{{movie.title_kor}}">
+        </div>
+        <div class="movie-search-info m-col-2 t-col-5 d-col-3">
+          <h2 class="movie-search-title">{{movie.title_kor}}<span>({{movie.title_eng}})</span></h2>
+            <div class="recommend-stars">
+              <div class="movie-search-stars-wrap">
+                <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+              </div>
+              <span class="movie-grade">{{movie.star_average}}</span>
+            </div>
+            <table class="movie-search-info-table">
+              <caption class="readable-hidden">영화 정보</caption>
+              <tr>
+                <th scope="row">개요</th>
+                <td>{{movie.run_time}}<span>|</span>{{movie.making_country[0].content}} {{movie.making_country[1].content}}</td>
+              </tr>
+              <tr>
+                <th scope="row">감독</th>
+                <td>{{movie.director[0].name_kor}}</td>
+              </tr>
+              <tr>
+                <th scope="row">출연</th>
+                <td>{{movie.actors[0].name_kor}},{{movie.actors[1].name_kor}}</td>
+              </tr>
+              <tr>
+                <th scope="row">등급</th>
+                <td>{{movie.grade.content}}</td>
+              </tr>
+            </table>
+           <a href data-ui-sref="edit({'id': movie.id})"> 
+              <button type="button" class="movie-search-show-more-button st-button-B">더 많은 정보 보기</button></a>
+        </div>
+      </article>

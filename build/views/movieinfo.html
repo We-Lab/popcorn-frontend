@@ -1,0 +1,545 @@
+<!-- <div data-ng-repeat="movie in filteredMovies=(moviedetail_data.movies | filter:search )" data-ng-init="$last && repeatComplete()"> -->
+<div data-ng-model="moviedetail_data.movies[0]" id="movieinfo-detail" data-ng-controller="moviedetailController">
+    <section class="movie-info">
+      <div role="group" class="movie-info-group-wrapper">
+        <div class="movie-main-background-wrap">
+          <img class="movie-main-background" data-ng-src={{moviedetail_data.movies[0].main_image_url}} src="http://t1.daumcdn.net/movie/863a75eb90beca48c4ad1a1af30d62a30ca7bfb1" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+        </div>
+				<div class="container h400 row">
+					<img class="movie-info-poster m-col-2 t-col-2 d-col-3" data-ng-src="{{moviedetail_data.movies[0].img_url}}" src="http://t1.daumcdn.net/movie/3f5df00f56b2a4c2c7baebea12b456320cf47c63" alt="{{moviedetail_data.movies[0].title_kor}} 포스터">
+					<div class="dumy t-col-8"></div>
+					<div role="group" class="movie-info-group m-col-4 t-col-8 d-col-12">
+      	  	<ul class="movie-info-list m-col-2 m-prefix-2 t-col-6 t-prefix-2 d-prefix-3">
+      	  	  <li class="movie-title" aria-label="제목">
+                {{moviedetail_data.movies[0].title_kor}}<span>({{moviedetail_data.movies[0].title_eng}})</span>
+              </li>
+      	  	  <li class="movie-grade-group row" aria-label="평점">
+                <div class="stars-wrap">
+                  <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+                </div>
+		            <div class="movie-grade movie-grade-style">{{moviedetail_data.movies[0].star_average  | number:2}}</div>
+      	  	  </li>
+      	  	  <li>
+      	  	    <ul class="movie-info-sub">
+                  <li class="release" aria-label="상영연도">{{moviedetail_data.movies[0].created_year}}</li>
+                  <li class="nation" aria-label="국가">{{moviedetail_data.movies[0].making_country[0].content}}</li>
+                  <li class="genre" aria-label="장르">{{moviedetail_data.movies[0].genre[0].content}}, {{moviedetail_data.movies[0].genre[1].content}}</li>
+      	  	      <li class="run-time" aria-label="상영시간">{{moviedetail_data.movies[0].run_time}}</li>
+      	  	      <li class="rate" aria-label="관람등급">{{moviedetail_data.movies[0].grade.content}}</li>
+      	  	    </ul>
+      	  	  </li>
+      	  	</ul>
+      		</div>
+				</div>
+      </div>
+    </section>
+		<section class="movie-summary container">
+			<h1 class="movie-summary-heading t-col-1 t-prefix-2 d-col-1 d-prefix-3">줄거리</h1>
+			<p class="movie-summary-paragraph m-col-4 t-col-6 t-push-2 d-col-9 d-prefix-3">
+			{{moviedetail_data.movies[0].synopsis}}
+			</p>
+		</section>
+		<section class="movie-actor container">
+			<h1 class="movie-actor-heading t-col-2 t-pull-6 d-col-2">배우 / 제작진</h1>
+			<ul class="movie-actor-list t-col-2 t-pull-6 d-col-3 d-pull-2">
+				<li class="">
+					<a href="#">
+						<div class="actor-image-wrap">
+							<img data-ng-src={{moviedetail_data.movies[0].director[0].profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].director[0].name_kor}}">
+						</div>
+						<div class="actor-info-wrap">
+							<h2>감독</h2>
+							<div class="actor-role-info"></div>
+							<div class="actor-name-info">{{moviedetail_data.movies[0].director[0].name_kor}}</div>
+						</div>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<div class="actor-image-wrap">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[0].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[0].actor.name_kor}}">
+						</div>
+						<div class="actor-info-wrap">
+							<h2>배우</h2>
+							<div class="actor-role-info">| {{moviedetail_data.movies[0].actors[0].character_name}}</div>
+							<div class="actor-name-info">{{moviedetail_data.movies[0].actors[0].actor.name_kor}}</div>
+						</div>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<div class="actor-image-wrap">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[1].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[1].actor.name_kor}}">
+						</div>
+						<div class="actor-info-wrap">
+							<h2>배우</h2>
+							<div class="actor-role-info">| {{moviedetail_data.movies[0].actors[1].character_name}}</div>
+							<div class="actor-name-info">{{moviedetail_data.movies[0].actors[1].actor.name_kor}}</div>
+						</div>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<div class="actor-image-wrap">
+							<img data-ng-src={{moviedetail_data.movies[0].actors[2].actor.profile_url}} src="images/icon/icon-nouser.svg" alt="{{moviedetail_data.movies[0].actors[2].actor.name_kor}}">
+						</div>
+						<div class="actor-info-wrap">
+							<h2>배우</h2>
+							<div class="actor-role-info">| {{moviedetail_data.movies[0].actors[2].character_name}}</div>
+							<div class="actor-name-info">{{moviedetail_data.movies[0].actors[2].actor.name_kor}}</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</section>
+		<section class="movie-still container row">
+			<h1 class="movie-still-heading t-col-1 t-push-2 d-col-1 d-pull-2">스틸컷</h1>
+			<div class="movie-still-wrapper t-col-6 t-push-2 d-col-9 d-push-3">
+				<div class="movie-still-gallery m-col-4">
+					<ul class="movie-still-list">
+						<li class="">
+							<button type="button">
+								<img data-ng-src="{{moviedetail_data.movies[0].image_set[0].url}}" src="http://t1.daumcdn.net/movie/af4830bf515df78a4e21462c1386248d2eae969d" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+							</button>
+						</li>
+						<li class="">
+							<button type="button">
+								<img data-ng-src="{{moviedetail_data.movies[0].image_set[1].url}}" src="http://t1.daumcdn.net/movie/73485117826289809850aa0d7e83273fdf407551" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+							</button>
+						</li>
+						<li class="">
+							<button type="button">
+								<img data-ng-src="{{moviedetail_data.movies[0].image_set[2].url}}"  src="http://t1.daumcdn.net/movie/ebff864c8d894f7f224932cf8b706cc111ab2918" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+							</button>
+						</li>
+						<li class="">
+							<button type="button">
+								<img data-ng-src="{{moviedetail_data.movies[0].image_set[3].url}}" src="http://t1.daumcdn.net/movie/c4df9efd5f8e6a211cab951a291bef1fc5726042" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+							</button>
+						</li>
+					</ul>
+				</div>
+				<div class="movie-still-view m-col-4">
+					<img data-ng-src="{{moviedetail_data.movies[0].image_set[0].url}}" src="http://t1.daumcdn.net/movie/af4830bf515df78a4e21462c1386248d2eae969d" alt="{{moviedetail_data.movies[0].title_kor}}의 스틸컷">
+				</div>
+			</div>
+		</section>
+		<div class="container">
+		  <section class="movie-video">
+		    <h1 class="movie-video-heading t-col-1 d-col-1">예고편</h1>
+		    <div class="movie-video-view m-col-4 t-col-8 d-col-9">
+		      <iframe title="{{moviedetail_data.movies[0].title_kor}} 예고편" data-ng-src="{{moviedetail_data.movies[0].main_trailer | trustAsResourceUrl}}" src="http://videofarm.daum.net/controller/video/viewer/Video.html?vid=vd602rZMZZ4Zwbewrejr11r&play_loc=undefined&alert=true" frameborder="0" scrolling="no"></iframe>
+		    </div>
+		  </section>
+		  <!-- </div> -->
+		  <!-- 연관영화 -->
+		  <div data-ng-controller="movieinfoRelatedController">
+		    <section class="movie-relative row">
+		      <h1 class="movie-relative-heading d-col-1">연관 영화</h1>
+		      <ul class="movie-relative-list d-col-3">
+		        <li class="m-col-1 t-col-2" data-ng-repeat="movie in filteredMovies=(movieinfoRelated_data.movies | filter:search )">
+		        <a href="#">
+		          <figure>
+	              <img class="movie-relative-poster" data-ng-src="{{movie.img_url | defaultImage}}" src="http://img1.daumcdn.net/thumb/C155x225/?fname=http%3A%2F%2Fcfile189.uf.daum.net%2Fimage%2F146F1B10ACE2AE7DF12090" alt="{{movie.title_kor}} 포스터">
+	              <figcaption>
+	                <div class="movie-relative-title">{{movie.title_kor}}</div>
+	                <div class="movie-relative-grade-group">
+                    <div class="movie-relative-stars-wrap">
+                      <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+                    </div>
+	                  <div class="movie-grade small-movie-grade">{{movie.star_average}}</div>
+	                </div>
+	              </figcaption>
+		            </figure>
+		          </a>
+		        </li>
+		      </ul>
+		      <button class="movie-relative-show-more-button">더보기</button>
+		    </section>
+		</div>
+            <!--  <div data-movieinfo-related-star></div> -->
+		<!-- 평점 -->
+		<div class="container">
+		  <section class="movie-comment" data-ng-controller="movieinfoCommentController">
+		    <div class="movie-comment-wrap">
+		      <h1 class="movie-comment-heading m-col-1 row">평점</h1>
+		      <button class="movie-comment-add-button">평점 등록하기</button>
+		      <div class="movie-comment-rating-group m-col-4 t-col-8">
+		        <div class="star-rating-group">
+		          <form action="#" id="star_rating">
+		            <input
+		              value="0.0"
+		              id="star0"
+		              type="radio"
+		              name="rating"
+                  checked=""
+		              class="readable-hidden">
+		            <label for="star0">
+		              <span class="">0</span>
+		            </label>
+
+                <input
+                  value="0.5"
+                  id="star0.5"
+                  type="radio"
+                  name="rating"
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+                <label for="star0.5">
+                  <span class="">0.5</span>
+                  <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                      <title>Combined Shape</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                      </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                          <g id="Desktop" transform="translate(-353.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+                              <g id="stars" transform="translate(305.000000, 769.000000)">
+                                  <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                </label>
+
+		            <input
+		              value="1.0"
+		              id="star1"
+		              type="radio"
+		              name="rating"
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+		            <label for="star1">
+		              <span class="">1</span>
+		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+		                      <title>Combined Shape</title>
+		                      <desc>Created with Sketch.</desc>
+		                      <defs>
+		                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+		                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+		                              <use xlink:href="#path-1"></use>
+		                          </mask>
+		                      </defs>
+		                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+		                          <g id="Desktop" transform="translate(-355.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+		                              <g id="stars" transform="translate(305.000000, 769.000000)">
+		                                  <use id="Combined-Shape" mask="url(#mask-2)" transform="translate(54.498841, 34.995000) scale(-1, 1) translate(-54.498841, -34.995000) " xlink:href="#path-1"></use>
+		                              </g>
+		                          </g>
+		                      </g>
+		                  </svg>
+		            </label>
+
+                <input
+                  value="1.5"
+                  id="star1.5"
+                  type="radio"
+                  name="rating"
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+                <label for="star1.5">
+                  <span class="">1.5</span>
+                  <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                      <title>Combined Shape</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                      </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                          <g id="Desktop" transform="translate(-353.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+                              <g id="stars" transform="translate(305.000000, 769.000000)">
+                                  <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                </label>
+
+		            <input
+		              value="2.0"
+		              id="star2"
+		              type="radio"
+		              name="rating"
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+		            <label for="star2">
+		              <span class="">2</span>
+		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+		                      <title>Combined Shape</title>
+		                      <desc>Created with Sketch.</desc>
+		                      <defs>
+		                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+		                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+		                              <use xlink:href="#path-1"></use>
+		                          </mask>
+		                      </defs>
+		                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+		                          <g id="Desktop" transform="translate(-355.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+		                              <g id="stars" transform="translate(305.000000, 769.000000)">
+		                                  <use id="Combined-Shape" mask="url(#mask-2)" transform="translate(54.498841, 34.995000) scale(-1, 1) translate(-54.498841, -34.995000) " xlink:href="#path-1"></use>
+		                              </g>
+		                          </g>
+		                      </g>
+		                  </svg>
+		            </label>
+
+                <input
+                  value="2.5"
+                  id="star2.5"
+                  type="radio"
+                  name="rating"
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+                <label for="star2.5">
+                  <span class="">2.5</span>
+                  <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                      <title>Combined Shape</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                      </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                          <g id="Desktop" transform="translate(-353.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+                              <g id="stars" transform="translate(305.000000, 769.000000)">
+                                  <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                </label>
+
+		            <input
+		              value="3.0"
+		              id="star3"
+		              type="radio"
+		              name="rating"
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+		            <label for="star3">
+		              <span class="">3</span>
+		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+		                      <title>Combined Shape</title>
+		                      <desc>Created with Sketch.</desc>
+		                      <defs>
+		                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+		                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+		                              <use xlink:href="#path-1"></use>
+		                          </mask>
+		                      </defs>
+		                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+		                          <g id="Desktop" transform="translate(-355.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+		                              <g id="stars" transform="translate(305.000000, 769.000000)">
+		                                  <use id="Combined-Shape" mask="url(#mask-2)" transform="translate(54.498841, 34.995000) scale(-1, 1) translate(-54.498841, -34.995000) " xlink:href="#path-1"></use>
+		                              </g>
+		                          </g>
+		                      </g>
+		                  </svg>
+		            </label>
+
+                <input
+                  value="3.5"
+                  id="star3.5"
+                  type="radio"
+                  name="rating"
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+                <label for="star3.5">
+                  <span class="">3.5</span>
+                  <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                      <title>Combined Shape</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                      </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                          <g id="Desktop" transform="translate(-353.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+                              <g id="stars" transform="translate(305.000000, 769.000000)">
+                                  <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                </label>
+
+		            <input
+		              value="4.0"
+		              id="star4"
+		              type="radio"
+		              name="rating"
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+		            <label for="star4">
+		              <span class="">4</span>
+		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+		                      <title>Combined Shape</title>
+		                      <desc>Created with Sketch.</desc>
+		                      <defs>
+		                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+		                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+		                              <use xlink:href="#path-1"></use>
+		                          </mask>
+		                      </defs>
+		                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+		                          <g id="Desktop" transform="translate(-355.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+		                              <g id="stars" transform="translate(305.000000, 769.000000)">
+		                                  <use id="Combined-Shape" mask="url(#mask-2)" transform="translate(54.498841, 34.995000) scale(-1, 1) translate(-54.498841, -34.995000) " xlink:href="#path-1"></use>
+		                              </g>
+		                          </g>
+		                      </g>
+		                  </svg>
+		            </label>
+
+                <input
+                  value="4.5"
+                  id="star4.5"
+                  type="radio"
+                  name="rating"
+                  class="readable-hidden"
+                  data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+                <label for="star4.5">
+                  <span class="">4.5</span>
+                  <svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+                      <title>Combined Shape</title>
+                      <desc>Created with Sketch.</desc>
+                      <defs>
+                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                      </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                          <g id="Desktop" transform="translate(-353.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+                              <g id="stars" transform="translate(305.000000, 769.000000)">
+                                  <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                </label>
+
+		            <input
+		              value="5.0"
+		              id="star5"
+		              type="radio"
+		              name="rating"
+		              class="readable-hidden"
+		              data-ng-model="movieinfoComment_data.movieinfoComment_movie.star">
+		            <label for="star5">
+		              <span class="">5</span>
+		                  <svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		                      <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+		                      <title>Combined Shape</title>
+		                      <desc>Created with Sketch.</desc>
+		                      <defs>
+		                          <path d="M59.9976818,25.421814 C59.7351664,25.154613 59.3801752,25 58.997882,25 C58.4485564,25 57.9552845,25.3197018 57.712252,25.8341501 L55.5473809,30.4131995 C55.7631802,30.4131995 55.2767219,30.7433491 55.0705247,30.7746924 L50.2290929,31.5089618 C49.6849723,31.5912903 49.2413479,31.981619 49.0711851,32.5278285 C48.9014227,33.074038 49.0403556,33.6616207 49.4339321,34.0619793 L52.9368834,37.6259233 C53.0862263,37.7780428 53.1546918,37.9970281 53.1194581,38.2109985 L52.2930675,43.2434812 C52.2197974,43.6864667 52.3311039,44.1173328 52.6057666,44.4570944 C53.032575,44.9865874 53.7776878,45.147901 54.3734578,44.8210947 L58.997882,42.4448533 C59.1788551,42.3458084 59.1119911,42.3466445 59.2925639,42.4448535 L59.9976818,42.8317992 L59.9976818,25.421814 Z" id="path-1"></path>
+		                          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.9976818" height="19.9899998" fill="white">
+		                              <use xlink:href="#path-1"></use>
+		                          </mask>
+		                      </defs>
+		                      <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+		                          <g id="Desktop" transform="translate(-355.000000, -794.000000)" stroke="#F8E81C" stroke-width="2">
+		                              <g id="stars" transform="translate(305.000000, 769.000000)">
+		                                  <use id="Combined-Shape" mask="url(#mask-2)" transform="translate(54.498841, 34.995000) scale(-1, 1) translate(-54.498841, -34.995000) " xlink:href="#path-1"></use>
+		                              </g>
+		                          </g>
+		                      </g>
+		                  </svg>
+		            </label>
+
+		            <button type="submit" class="btn-small readable-hidden focusable">Submit rating</button>
+
+		            <output></output>
+		          </form>
+		        </div>
+		        <div class="comment-writing-group">
+		          <textarea placeholder="감상평" data-ng-model="movieinfoComment_data.movieinfoComment_movie.content"></textarea>
+		        </div>
+		        <div class="movie-comment-submit-button-group">
+		          <button class="movie-comment-submit-button" data-ladda="movieinfoComment_data.is_creating" data-ng-click="create()">완료</button>
+		        </div>
+		      </div>
+
+                   <!-- comment get start -->
+		      <ul class="movie-comment-list row m-col-4">
+		        <li data-ng-repeat="movie in filteredMovies=(movieinfoComment_data.movies | filter:search )">
+		          <img class="movie-comment-user-image" data-ng-src="{{movie.author.profile_img}}" src="images/icon/icon-nouser.svg" alt="">
+		          <div class="movie-comment-right-group m-col-3 t-col-7">
+		            <p class="movie-comment-paragraph ">{{movie.content}}</p>
+		            <div class="movie-comment-star-group row">
+		              <div class="movie-comment-stars-wrap">
+		                <img class="stars-rating" src="../images/stars/stars0-0.svg" alt="">
+		              </div>
+		              <div class="movie-grade medium-movie-grade">{{movie.star}}</div>
+		            </div>
+		            <div class="write-info-group">
+		              <span>{{movie.created | date:'yyyy-MM-dd'}} | {{movie.author.nickname}}</span>
+		            </div>
+		          </div>
+		        </li>
+
+		      </ul>
+		      <button class="movie-comment-show-more-button">더보기</button>
+		    </div>
+		  </section>
+
+		  <!-- 명대사 -->
+		  <section class="movie-dialogue">
+		    <div class="movie-dialogue-wrap">
+		      <h1 class="movie-dialogue-heading m-col-1 row">명대사</h1>
+		      <button class="movie-dialogue-add-button">명대사 등록하기</button>
+		      <div class="movie-dialogue-select-group m-col-4 t-col-8" data-ng-controller="moviedetailController" data-ng-model="moviedetail_data.movies[0]">
+		        <select class="movie-dialogue-actor-select" name="">
+		          <option value="1"  data-ng-repeat="movie in filteredMovies=(moviedetail_data.movies[0].actors | filter:search )"><span class="actor-role-select" >{{movie.character_name}}</span> | <span>{{movie.actor.name_kor}}</span></option>
+		        </select>
+		       <div data-ng-controller="movieinfoFamousLineController">
+		       	 <input class="movie-dialogue-write-speech" placeholder="명대사" type="text" data-ng-model="FamousLine_data.FamousLine_person.content">
+		       </div>
+		        <div class="movie-dialogue-submit-button-group">
+		          <button class="movie-dialogue-submit-button">완료</button>
+		        </div>
+		      </div>
+		      <ul class="movie-dialogue-list m-col-4 d-col-5" data-ng-controller="movieinfoFamousLineController">
+		        <li class="row" data-ng-repeat="movie in filteredMovies=(movieinfoFamousLine_data.movies | filter:search )">
+		          <div class="dialogue-actor-image-wrap">
+		            <img data-ng-src="{{movie.actor_img_url}}" src="http://img1.daumcdn.net/thumb/C74x107/?fname=http%3A%2F%2Fcfile89.uf.daum.net%2Fimage%2F11182E10AE298D72EF8499" alt="{{movie.actor_kor_name}}">
+		          </div>
+		          <div class="dialogue-content-wrap m-col-3 t-col-7">
+		            <p>{{movie.content}}</p>
+		            <div class="dialogue-actor-info-group d-col-4">
+		              <span class="dialogue-actor-role">{{movie.actor_character_name}}</span>
+		              <span class="dialogue-actor-name">| {{movie.actor_kor_name}}</span>
+		            </div>
+		           <!--  <span class="dialogue-writer-name">이나영</span> -->
+		          </div>
+		        </li>
+
+		      </ul>
+		      <button class="movie-dialogue-show-more-button">더보기</button>
+		    </div>
+		      </section>
+		</div>
+</div>
+
+<div data-ng-include=" 'views/footer.html' "></div>

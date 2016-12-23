@@ -14,7 +14,7 @@ angular
           },
         'create': { 
              method:'post',
-             headers: {'Authorization' : 'Token 918627bfb41049b4d6c8d28b9f06c81bb435b0bd'}
+             headers: {'Authorization' : 'Token 6c7259f9067338c4e86bbd146ca2082aeb1454be'}
            }
         }
       );
